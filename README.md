@@ -8,7 +8,7 @@ This particular project focuses on scraping the textual data from all the offici
 
 For search 1 we have decided to use the Doc2vec embeddings, which is famous for paragraph embedding. For a second search, we have used the machine learning technique TFIDF to find the similar companies within an industry, which is predefined by our dictionaries. The process of second search is shown in the following picture.
 
-<img src="tfidf.pdf" width="50%"/>
+<img src="tfidf.png" width="50%"/>
 
 ## Getting Started
 The code attached in this file contain the code for search tool including search 1 and search 2. The code is written in python and is dependant on libraries:
@@ -19,47 +19,128 @@ nltk
 gensim
 ```
 
-## Running the Codes
-```
-main.py
-```
-Here we can modify the learning rate, epoch and batch size to train the simple MLP. Moreover, the trained weights will be stored in the user defined file, which will be later used for test and prediction.
+The data are scraped and prepared for running the training. The dictionary of industries was created based on the most frequent words excluding the stopwords.
 
+## Running the Codes
+We can now run the main code
 ```
-=== Epoch: 0/10 === Iter:500 === Loss: 2.39 === BAcc: 0.10 === TAcc: 0.10 === Remain: 12 Hrs 0 Mins 0 Secs ===
-=== Epoch: 0/10 === Iter:1000 === Loss: 2.35 === BAcc: 0.13 === TAcc: 0.11 === Remain: 12 Hrs 0 Mins 0 Secs ===
-=== Epoch: 0/10 === Iter:1500 === Loss: 2.35 === BAcc: 0.12 === TAcc: 0.11 === Remain: 11 Hrs 0 Mins 0 Secs ===
-=== Epoch: 0/10 === Iter:2000 === Loss: 2.33 === BAcc: 0.11 === TAcc: 0.11 === Remain: 12 Hrs 0 Mins 0 Secs ===
-=== Epoch: 0/10 === Iter:2500 === Loss: 2.30 === BAcc: 0.12 === TAcc: 0.11 === Remain: 11 Hrs 0 Mins 0 Secs ===
-=== Epoch: 0/10 === Iter:3000 === Loss: 2.30 === BAcc: 0.12 === TAcc: 0.11 === Remain: 11 Hrs 0 Mins 0 Secs ===
-=== Epoch: 0/10 === Iter:3500 === Loss: 2.27 === BAcc: 0.14 === TAcc: 0.12 === Remain: 11 Hrs 0 Mins 0 Secs ===
-=== Epoch: 0/10 === Iter:4000 === Loss: 2.26 === BAcc: 0.16 === TAcc: 0.12 === Remain: 10 Hrs 0 Mins 0 Secs ===
-=== Epoch: 0/10 === Iter:4500 === Loss: 2.24 === BAcc: 0.19 === TAcc: 0.13 === Remain: 10 Hrs 0 Mins 0 Secs ===
-=== Epoch: 0/10 === Iter:5000 === Loss: 2.24 === BAcc: 0.19 === TAcc: 0.14 === Remain: 10 Hrs 0 Mins 0 Secs ===
-=== Epoch: 0/10 === Iter:5500 === Loss: 2.21 === BAcc: 0.24 === TAcc: 0.15 === Remain: 10 Hrs 0 Mins 0 Secs ===
-=== Epoch: 0/10 === Iter:6000 === Loss: 2.20 === BAcc: 0.20 === TAcc: 0.15 === Remain: 10 Hrs 0 Mins 0 Secs ===
-=== Epoch: 0/10 === Iter:6500 === Loss: 2.16 === BAcc: 0.27 === TAcc: 0.16 === Remain: 10 Hrs 0 Mins 0 Secs ===
-=== Epoch: 0/10 === Iter:7000 === Loss: 2.16 === BAcc: 0.27 === TAcc: 0.17 === Remain: 10 Hrs 0 Mins 0 Secs ===
-=== Epoch: 0/10 === Iter:7500 === Loss: 2.18 === BAcc: 0.25 === TAcc: 0.17 === Remain: 11 Hrs 0 Mins 0 Secs ===
-=== Epoch: 0/10 === Iter:8000 === Loss: 2.17 === BAcc: 0.26 === TAcc: 0.18 === Remain: 10 Hrs 0 Mins 0 Secs ===
-=== Epoch: 0/10 === Iter:8500 === Loss: 2.15 === BAcc: 0.27 === TAcc: 0.18 === Remain: 10 Hrs 0 Mins 0 Secs ===
-=== Epoch: 0/10 === Iter:9000 === Loss: 2.12 === BAcc: 0.25 === TAcc: 0.19 === Remain: 10 Hrs 0 Mins 0 Secs ===
-=== Epoch: 0/10 === Iter:9500 === Loss: 2.11 === BAcc: 0.31 === TAcc: 0.19 === Remain: 10 Hrs 0 Mins 0 Secs ===
-=== Epoch: 0/10 === Iter:10000 === Loss: 2.09 === BAcc: 0.30 === TAcc: 0.20 === Remain: 10 Hrs 0 Mins 0 Secs ===
-=== Epoch: 0/10 === Iter:10500 === Loss: 2.09 === BAcc: 0.33 === TAcc: 0.21 === Remain: 10 Hrs 0 Mins 0
+searchtool.py
 ```
+Because it takes time to train the doc2vec model, the program will run the training for the first time and save this trained model for next use. It takes about 10 min to train the data for 1417 companies on UK stock market.
 
 ## Results
-* learning rate: 0.001
-* batch size: 500
-* number of particles for ensemble: 10
+```
+Is this you first time using this tool?
 
-### Training plot
-<img src="alldnn1.png" width="50%"/>
+[y/n]:n
+Loading the model ...
 
-### Test accuracy
-SGD: 0.8922;
-NAG: 0.936;
-Adam: 0.9699;
-IEnK: 0.886.
+Which search do u wish to turn on? 1 for company search, 2 for sector search:1
+
+Company name:888 
+
+Do you mean: 888 Holdings?[y/n]y
+
+Do you want to narrow down the search by company size?[y/n]y
+ddd
+
+Please enter the lower bound for size (in millions):10
+
+Please enter the upper bound for size (in millions):100
+
+How many companies do you want to find? Enter number:10
+Search: 888 Holdings,  Market Capital: 600.16
+                          Similar_company  MarketCap
+121                  Greencoat Renewables      92.95
+128                          Mysale Group      49.46
+146                           MobilityOne      40.52
+224                           GLI Finance      53.83
+237           Pennant International Group      87.20
+364                         Admiral Group      88.80
+368                      HG Capital Trust      99.99
+384                 Begbies Traynor Group      91.20
+468  Funding Circle Holdings  Ord 0.1p Wi      76.18
+538                        Coral Products      73.33
+
+Do you wish to start another search?
+```
+As we can see, before the program finds the similar companies with search 1, we can further filter the selected companies by market capital and number of most similar companies to a company.
+
+```
+Do you wish to start another search?
+
+[y/n]:y
+
+Which search do u wish to turn on? 1 for company search, 2 for sector search:2
+
+Type any keywords for to define the company activities or company products: bank
+The keywords "bank", were found under sector "Finance & Banking". The companies defined with these keywords are shown below.
+0                                       3i Infrastructure
+3                              Aberdeen Asian Income Fund
+5       Aberdeen Asian Smaller Companies Investment Trust
+9            Aberdeen Diversified Income And Growth Trust
+11        Alcentra European Floating Rate Income Fund Red
+20           Aberdeen New India Investment Trust  Ord 25p
+23                                      Apax Global Alpha
+24                                     Arrow Global Group
+25                   Asa International Group  Ord Gbp1 Wi
+27      ABERDEEN STANDARD EQUITY INCOME TRUST PLC ORD 25P
+29                     Aberforth Split Level Income Trust
+32               Schroder Asian Total Return Inv. Company
+33                                    Artemis Alpha Trust
+34                                         Alliance Trust
+35                      Allianz Technology Trust  Ord 25p
+50                                    BB Healthcare Trust
+54      BMO CAPITAL & INCOME INVESTMENT TRUST PLC ORD 25P
+59                            Baillie Gifford Shin Nippon
+60               BMO GLOBAL SMALLER COMPANIES PLC ORD 25P
+61                Baillie Gifford Uk Growth Fund  Ord 25p
+62                                  BH Global Limited GBP
+63                                   BH Macro Limited GBP
+66                                           Biotech Gwth
+71                       Bankers' Investment Trust  (the)
+77                    BMO PRIVATE EQUITY TRUST PLC ORD 1P
+79                   Blackrock Frontiers Investment Trust
+80                     Blackrock Greater Europe Inv Trust
+81                                     BlackRock Latin Am
+82                                   BlackRock North Amer
+83                      BlackRock Smaller Companies Trust
+                       ...
+654                                   AFH Financial Group
+697                                            Argo Group
+716                                 B.P. Marsh & Partners
+787                  Cip Merchant Capital Limited Ord Npv
+812                     Craven House Capital  ORD USD1.00
+817                            Crystal Amber Fund Limited
+841                                  Duke Royalty Limited
+869                             EPE Special Opportunities
+899                                  First Property Group
+931                                           GLI Finance
+945                               Gresham House Strategic
+948                                    Gunsynd  Ord 0.01p
+950                                             H&T Group
+954                       Harwood Wealth Management Group
+956                                   Helios Underwriting
+1055                                 Manx Financial Group
+1057                                    Marechale Capital
+1065                               Metal Tiger  Ord 0.01p
+1078                                          Miton Group
+1114                                    Numis Corporation
+1118                                            Octagonal
+1129                                       Origo Partners
+1145                                            PCF Group
+1167                               Polar Capital Holdings
+1175                       Premier Asset Management Group
+1223                                     Rosenblatt Group
+1231                                             Safeland
+1389                         Weiss Korea Opportunity Fund
+1400                             Yellow Cake  Ord Gbp0.01
+1401                          Yolo Leisure And Technology
+Name: Name, Length: 195, dtype: object
+Do you wish to start another search?
+
+[y/n]:n
+```
+The program then runs until we choose to close the search.
+
 
