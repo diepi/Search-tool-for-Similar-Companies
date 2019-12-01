@@ -29,6 +29,7 @@ searchtool.py
 Because it takes time to train the doc2vec model, the program will run the training for the first time and save this trained model for next use. It takes about 10 min to train the data for 1417 companies on UK stock market.
 
 ## Results
+As we can see below, before the program finds the similar companies with search 1, we can further filter the selected companies by market capital and number of most similar companies to a company.
 ```
 Is this you first time using this tool?
 
@@ -64,7 +65,7 @@ Search: 888 Holdings,  Market Capital: 600.16
 
 Do you wish to start another search?
 ```
-As we can see, before the program finds the similar companies with search 1, we can further filter the selected companies by market capital and number of most similar companies to a company.
+And running the second search:
 
 ```
 Do you wish to start another search?
