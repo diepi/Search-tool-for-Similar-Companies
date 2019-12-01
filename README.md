@@ -8,7 +8,7 @@ This particular project focuses on scraping the textual data from all the offici
 
 For search 1 we have decided to use the Doc2vec embeddings, which is famous for paragraph embedding. For a second search, we have used the machine learning technique TFIDF to find the similar companies within an industry, which is predefined by our dictionaries. The process of second search is shown in the following picture.
 
-<img src="tfidf.png" width="50%"/>
+<img src="tfidf.png" width="90%"/>
 
 ## Getting Started
 The code attached in this file contain the code for search tool including search 1 and search 2. The code is written in python and is dependant on libraries:
