@@ -351,7 +351,7 @@ def FindSimilarBusinesses():
     print("*"*55)
     print("***"+" "*8+"WELCOME TO PEAK SEARCH TOOL!"+" "*8+"***")
     print("*"*55,"\n")
-    data=pd.read_csv("compdata.csv")
+    data=pd.read_csv("finaldata.csv")
     df = data['Aggregate_text']
     dictionary = pd.read_csv("dictionary.csv")
     #first step - building model or not?
