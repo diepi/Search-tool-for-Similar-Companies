@@ -19,7 +19,7 @@ nltk
 gensim
 ```
 
-The data are scraped and prepared for running the training. The dictionary of industries was created based on the most frequent words excluding the stopwords.
+The data are scraped and prepared for running the training. The dictionary of industries was created based on the most frequent words in the dataset excluding the stopwords.
 
 ## Running the Codes
 We can now run the main code
