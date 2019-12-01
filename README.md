@@ -4,7 +4,7 @@ The project was created by University of Manchester and PEAK AI Manchester.
 ## Introduction
 Nowadays many companies spend a great amount of time on searching for similar business for market analysis or investment purposes. It was until recently, when it was proposed to use machine learning and deep learning techniques to implement this process in easier and more efficient way.
 
-This particular project focuses on scraping the textual data from all the official financial website such as FT, Telegraph or London Stock Exchange. Then we used deep learning technique to find similar companies to a particular company (search 1) and used machine learning technique to find the similar companies within an industry (search 2).
+This particular project focuses on embedding UK businesses into vector space and find similarities. The project starts with scraping the textual data from all the official financial website such as FT, Telegraph or London Stock Exchange. Then we use deep learning technique to find similar companies to a particular company (search 1) and used machine learning technique to find the similar companies within an industry (search 2).
 
 For search 1 we have decided to use the Doc2vec embeddings, which is famous for paragraph embedding. For a second search, we have used the machine learning technique TFIDF to find the similar companies within an industry, which is predefined by our dictionaries. The process of second search is shown in the following picture.
 
